@@ -1,0 +1,19 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:quickbite;MODE=PostgreSQL;DB_CLOSE_DELAY=-1}
+    username: ${DB_USERNAME:quickbite}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+quickbite:
+  payment:
+    base-url: ${PAYMENT_BASE_URL:https://api.midtrans.com}
+    mock-enabled: ${PAYMENT_MOCK_ENABLED:true}
